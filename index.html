@@ -1,15 +1,76 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Movie Database</title>
-    <link rel="stylesheet" href="style.css">
-</head>
-<body>
-    
+    <link rel="stylesheet" href="style.css" />
+    <script
+      src="https://kit.fontawesome.com/e4787c9f01.js"
+      crossorigin="anonymous"
+    ></script>
+  </head>
+  <body>
+    <!-- 
+    <i class="fa-solid fa-star"></i>
+    <i class="fa-solid fa-bars"></i> -->
+
+    <section id="side-bar-main" class="side-bar-main">
+      <div class="side-bar-icon">
+        <div class="side-icon">
+          <i class="fa-solid fa-house"></i>
+        </div>
+        <div class="side-text">
+          <p>Home</p>
+        </div>
+      </div>
+
+      <div class="side-bar-icon">
+        <div class="side-icon">
+          <i class="fa-solid fa-film"></i>
+        </div>
+        <div class="side-text">
+          <p>Movie</p>
+        </div>
+      </div>
+
+      <div class="side-bar-icon">
+        <div class="side-icon">
+          <i class="fa-solid fa-tv"></i>
+        </div>
+        <div class="side-text">
+          <p>Series</p>
+        </div>
+      </div>
+
+      <div class="side-bar-icon" onclick="toggleGenres()">
+        <div class="side-icon">
+          <i class="fa-solid fa-plus"></i>
+        </div>
+        <div class="side-text">
+          <p>Genres</p>
+        </div>
+      </div>
+
+
+      <div class="genres-list" id="genres-list"></div>
+
+      
+      <div class="side-bar-icon">
+        <div class="side-icon">
+          <i class="fa-solid fa-heart"></i>
+        </div>
+        <div class="side-text">
+          <p>Favorites</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="home-main" class="home-main">
+      <h1>home page</h1>
+    </section>
 
     <script src="script.js"></script>
-</body>
+  </body>
 </html>
