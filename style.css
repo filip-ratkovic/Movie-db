@@ -8,23 +8,27 @@
     --light-grey:#cecccd;
     --dark-black:#101d26;
     --red:#dd1a2b;
-        
+     --ratingColor: #fbb708;
         /*  GRADIENT  */
 
-    --ratingColor: #fbb708;
-    --redGradient:90deg,#ff0f1d 0% ,#dd1a2b 100%;
+   
+    --redGradient:linear-gradient(90deg,#fa121e 0% ,#dd1a2b 100%);
+    --blackGradient:linear-gradient(90deg,#1a1818 0% ,#000000 100%);
+    
+
 
         /*  FONTS  */
 
     --fs-heading:4rem;
     --fs-title:2rem;
-    --fs-btn:1.5rem;
+    --fs-btn:.8rem;
     --fs-text:1rem;
 
         /*  SHADOWS  */
 
     --shadow-black: 0 1px 4px rgba(0, 0, 0, 0.3);
-    --shadow-red:  0 2px 5px rgba(255, 15, 27, 0.5);
+    --shadow-red:  0 2px 6px rgba(255, 15, 27, 0.8);
+    --shadow-white:  0 2px 5px rgba(121, 117, 117, 0.2);
 }
 
 * {
@@ -38,7 +42,7 @@ body {
     color: var(--white);
     font-family: 'DM Sans', sans-serif;
     width: 100%;
-    overflow: hidden;
+    overflow-x: hidden;
 }
 
 ::-webkit-scrollbar {
@@ -50,11 +54,11 @@ body {
   }
 
   ::-webkit-scrollbar-thumb {
-    background: var(--dark-black);
+    background: var(--grey);
   }
 
   ::-webkit-scrollbar-thumb:hover {
-    background: var(--black);
+    background: var(--light-grey);
   }
 
 
@@ -143,11 +147,102 @@ body {
 .side-bar-main:hover .side-text {
     display: block;
 }
+
+
+
+
+/* ====================================HOME PAGE CSS ================ =================================*/
+/* ====================================HOME PAGE CSS ================ =================================*/
+
 .home-main {
     transition: .5s margin-left ease;
     width: 100%;
+    height: 80vh;
     margin-left: 70px;
-    overflow: auto;
+    overflow-Y: scroll;
 }
+
+.showed-main-cont {
+    width: 100%;
+    height: 80vh;
+    background-size: cover;
+    background-position: center;
+    background-position-y: top;
+}
+
+.showed-text-cont {
+    padding: 40px;
+    width: 45%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    color: var(--grey);
+}
+
+.showed-text-cont h1 {
+    font-size: var(--fs-title);
+    background: -webkit-linear-gradient(var(--white), var(--light-grey));
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.showed-rateDuration {
+    display: flex;
+    margin-top: 40px;
+}
+.showed-rateDuration p {
+    padding: 0 5px;
+}
+
+.showed-rate {
+    display: flex;
+}
+.showed-rate i {
+    color: var(--ratingColor);
+}
+
+.showed-genres {
+    margin-top: 20px;
+}
+.showed-genres li {
+    display: inline-block;
+    padding-right:10px;
+    list-style-type: none;
+}
+
+.showed-overview {
+    margin-top: 20px;
+    word-spacing: 1.2px;
+    line-height: 1.5;
+}
+
+.showed-buttons {
+    margin-top: 30px;
+}
+
+.showed-buttons button {
+    padding: 8px 16px;
+    border-radius: 20px;
+    color: var(--white);
+    cursor: pointer;
+    font-size: var(--fs-btn);
+    outline: none;
+    border: none;
+    margin-right: 20px;
+    width: 100px;
+    letter-spacing: 1px;
+}
+
+#watch-btn {
+    background-image: var(--redGradient);
+    box-shadow: var(--shadow-red);
+}
+
+#add-btn {
+    background-color: var(--dark-black);
+    box-shadow: var(--shadow-white);
+}
+
 
 
