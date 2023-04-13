@@ -70,7 +70,7 @@ function homePageMovie(data) {
         url('https://image.tmdb.org/t/p/w1280/${data.backdrop_path}')`
         
         showedMainCont.innerHTML = `
-        <div class="showed-text-cont">
+        <div class="showed-text-cont ${data.id}" id='test'>
         <h1>${data.title}</h1>
         <div class="showed-rateDuration" id="showed-rateDuration">
             <div class="showed-rate">
@@ -101,6 +101,11 @@ function homePageMovie(data) {
             genresLi.innerHTML = genre.name;
             showedGenres.appendChild(genresLi);
          })}
+
+         const watchBtn = document.getElementById('test');
+         watchBtn.addEventListener('click', () => {
+                console.log(test.className)
+         })
 }
 
 getPopularMovieData()
