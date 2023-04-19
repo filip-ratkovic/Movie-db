@@ -1,8 +1,15 @@
-import React from 'react'
+import React, { useState } from 'react'
+import './home.css'
+import TrendingSlider from './TrendingSlider';
 
 function Home() {
+  const [trendingData, setTrendingData] = useState();
+
+
   return (
-    <div>Home</div>
+   <main>
+      <TrendingSlider/>
+   </main>
   )
 }
 

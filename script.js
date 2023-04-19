@@ -1,6 +1,6 @@
 const genresURL = 'https://api.themoviedb.org/3/genre/movie/list?api_key=2c2ddf06e3672c277286fe290e3b4cec&language=en-US'
 const popularURL = 'https://api.themoviedb.org/3/movie/popular?api_key=2c2ddf06e3672c277286fe290e3b4cec&language=en-US&page=1'
-const imgURL = "https://image.tmdb.org/t/p/w1280";
+const imgURL = "https://image.tmdb.org/t/p/w550";
 const searchURL ="https://api.themoviedb.org/3/search/movie?&api_key=04c35731a5ee918f014970082a0088b1&query=";
 const detailsURL ='https://api.themoviedb.org/3/movie/'
 const api_key = '?api_key=2c2ddf06e3672c277286fe290e3b4cec&language=en-US'
