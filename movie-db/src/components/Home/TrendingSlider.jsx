@@ -75,9 +75,6 @@ function TrendingSlider() {
             </SwiperSlide>
           );
         })}
-
-        <span slot="container-start">Container Start</span>
-        <span slot="container-end">Container End</span>
       </Swiper>
     </div>
   );

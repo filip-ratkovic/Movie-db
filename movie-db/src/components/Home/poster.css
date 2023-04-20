@@ -1,0 +1,30 @@
+.poster-container {
+    width: 100%;
+    height: 500px;
+    border: solid red 1px;
+    position: relative;
+}
+
+.poster-swiper-container {
+    width: 100%;
+    height: 100%;
+    background-position: center;
+    background-size: contain;
+}
+
+
+
+.small-swiper-cont {
+width: 200px;
+height: 200px;
+display: flex;
+justify-content: start;
+position: absolute;
+bottom: 0;
+left: 0;
+}
+
+.small-swiper-cont img {
+    width: 100%;
+}
+  
