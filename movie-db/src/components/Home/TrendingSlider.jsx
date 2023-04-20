@@ -7,7 +7,7 @@ import "swiper/swiper-bundle.min.css";
 
 const trendingURL =
   "https://api.themoviedb.org/3/trending/all/week?api_key=2c2ddf06e3672c277286fe290e3b4cec";
-  const imgURL = "https://image.tmdb.org/t/p/w500";
+const imgURL = "https://image.tmdb.org/t/p/w500";
 
 function TrendingSlider() {
   const [trendingData, setTrendingData] = useState([]);
@@ -30,27 +30,54 @@ function TrendingSlider() {
   return (
     <div className="slider-container">
       <Swiper
-        modules={[Navigation, Pagination, Scrollbar, A11y]}
-        spaceBetween={50}
-        slidesPerView={3}
+        modules={[Navigation, Pagination, A11y]}
         navigation
         pagination={{ clickable: true }}
-        scrollbar={{ draggable: true }}
-        onSwiper={(swiper) => console.log(swiper)}
-        onSlideChange={() => console.log("slide change")}
+        className="swiper-container"
+     
+        breakpoints={{
+          1150: {
+            slidesPerView: 5,
+            spaceBetween:50
+          },
+         
+          965: {
+            slidesPerView: 4,
+            spaceBetween:50
+
+          },
+          690: {
+            slidesPerView: 3,
+            spaceBetween:50
+          },
+          440: {
+            slidesPerView: 2,
+            spaceBetween:20
+          },
+        }}
       >
         {trendingData.map((movie) => {
           return (
             <SwiperSlide className="trendingCard">
-              <h1>{movie.title}</h1>
-              <p>{movie.overview}</p>
-              <img src={imgURL + movie.poster_path} alt={movie.title} />
+              <div
+                className="trending-card-img"
+                style={{
+                  backgroundImage: `url(${imgURL + movie.poster_path})`,
+                }}
+              ></div>
+              <div className="trending-card-info">
+                <h1>{movie.title}</h1>
+               <div className="trending-card-info-year">
+               <p>{movie.release_date?.toString().slice(0, 4)}</p>
+               <p id='trending-rate'>{movie.vote_average.toFixed(1)}</p>
+               </div>
+              </div>
             </SwiperSlide>
           );
         })}
 
-<span slot="container-start">Container Start</span>
-  <span slot="container-end">Container End</span>
+        <span slot="container-start">Container Start</span>
+        <span slot="container-end">Container End</span>
       </Swiper>
     </div>
   );

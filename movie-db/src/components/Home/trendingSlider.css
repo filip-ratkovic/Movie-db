@@ -1,8 +1,49 @@
+.swiper-container {
+    height: 100%;
+}
+.slider-container {
+    height: 500px;
+    width: 100%;
+    margin: 50px;
+}
+
 .trendingCard {
-    max-height: 400px;
+    max-height: 85%;
 }
 
-.trendingCard img {
-width: 100%;
-
+.trending-card-img {
+    background-position: center;
+    background-size: cover;
+    width: 100%;
+    height: 90%;
 }
+
+.trending-card-info {
+    width: 100%;
+    height: 10%;
+}
+
+.trending-card-info h1 {
+    font-size: var(--fs-text);
+    margin: 5px 0;
+}
+
+.trending-card-info-year {
+    display: flex;
+    justify-content: space-between;
+}
+
+#trending-rate {
+    color: var(--ratingColor);
+    font-weight: bold;
+}
+  
+  @media  (max-width: 690px) {
+    .slider-container {
+      height:90vh;
+      margin: 50px 10px;
+      width: 95%;
+    }
+  }
+  
+ 
