@@ -58,7 +58,7 @@ function TrendingSlider() {
       >
         {trendingData.map((movie) => {
           return (
-            <SwiperSlide className="trendingCard">
+            <SwiperSlide className="trendingCard" key={movie.poster_path}>
               <div
                 className="trending-card-img"
                 style={{
