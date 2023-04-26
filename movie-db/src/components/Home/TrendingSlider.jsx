@@ -16,7 +16,6 @@ function TrendingSlider() {
       const data = await fetch(trendingURL);
       const resData = await data.json();
       setTrendingData(resData.results);
-      console.log(resData.results);
     } catch (error) {
       console.log(error);
     }

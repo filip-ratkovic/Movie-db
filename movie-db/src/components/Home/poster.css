@@ -25,15 +25,31 @@
 
 .small-swiper-cont {
 width: 350px;
-height: 350px;
+height: 250px;
 display: flex;
 justify-content: start;
 position: absolute;
 bottom: 100px;
 left: 0;
 }
+/* .swiper-slide-active {
+   
+} */
 
 .small-swiper-cont img {
     width: 100%;
+    object-fit: cover;
 }
   
+.mySwiper .swiper-slide {
+    width: 25%;
+    height: 100%;
+    opacity: 0.4;
+  }
+  
+  .mySwiper .swiper-slide-thumb-active {
+    opacity: 1;
+  }
+.small-swiper-card {
+    cursor: pointer;
+}

@@ -49,23 +49,20 @@ function Poster() {
         className="poster-swiper-container"
       >
         {upcomingData.map((upcomingMovie) => {
-          counter ++
-         if(counter<6) {
-          return (
-            <SwiperSlide
-              className="poster-swiper-card"
-              style={{
-                backgroundImage: `url(${imgURL + upcomingMovie.poster_path})`,
-              }}
-            >
-              <div className="poster-swiper-card-inner"></div>
-            </SwiperSlide>
-          );
-         }
-        })
-        }
-
-      
+          counter++;
+          if (counter < 6) {
+            return (
+              <SwiperSlide
+                className="poster-swiper-card"
+                style={{
+                  backgroundImage: `url(${imgURL + upcomingMovie.poster_path})`,
+                }}
+              >
+                <div className="poster-swiper-card-inner"></div>
+              </SwiperSlide>
+            );
+          }
+        })}
       </Swiper>
 
       <Swiper
@@ -76,23 +73,23 @@ function Poster() {
         freeMode={true}
         watchSlidesProgress={true}
         modules={[FreeMode, Navigation, Thumbs]}
-        className="small-swiper-cont"
+        className="small-swiper-cont mySwiper"
       >
-
-{upcomingData.map((upcomingMovie) => {
-          counter2 ++
-         if(counter2<6) {
-          return (
-            <SwiperSlide
-            >
-           <img src={imgURL + upcomingMovie.poster_path} alt="" />
-            </SwiperSlide>
-          );
-         }
-        })
-        }
-
-       
+        <SwiperSlide>
+          <img src={imgURL + upcomingData[0].poster_path} alt="" />
+        </SwiperSlide>
+        <SwiperSlide>
+          <img src={imgURL + upcomingData[1].poster_path} alt="" />
+        </SwiperSlide>
+        <SwiperSlide>
+          <img src={imgURL + upcomingData[2].poster_path} alt="" />
+        </SwiperSlide>
+        <SwiperSlide>
+          <img src={imgURL + upcomingData[3].poster_path} alt="" />
+        </SwiperSlide>
+        <SwiperSlide>
+          <img src={imgURL + upcomingData[4].poster_path} alt="" />
+        </SwiperSlide>
       </Swiper>
     </div>
   );
