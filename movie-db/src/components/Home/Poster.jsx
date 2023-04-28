@@ -8,6 +8,8 @@ import "swiper/css/navigation";
 import "swiper/css/thumbs";
 
 import { FreeMode, Navigation, Thumbs } from "swiper";
+import Loading from "../Loading/Loading";
+import PosterCard from "./PosterCard";
 
 const upcomingURL =
   "https://api.themoviedb.org/3/movie/upcoming?api_key=2c2ddf06e3672c277286fe290e3b4cec&language=en-US&page=1";
@@ -18,21 +20,27 @@ let counter2 = 0;
 function Poster() {
   const [thumbsSwiper, setThumbsSwiper] = useState(null);
   const [upcomingData, setUpcomingData] = useState([]);
+  const [loading, setLoading] = useState(true);
 
-  const fetchUpcomingData = async () => {
-    try {
-      const data = await fetch(upcomingURL);
-      const resData = await data.json();
-      setUpcomingData(resData.results);
-      console.log(resData.results);
-    } catch (error) {
-      console.log(error);
-    }
-  };
+ 
 
   useEffect(() => {
+    const fetchUpcomingData = async () => {
+      try {
+        const data = await fetch(upcomingURL);
+        const resData = await data.json();
+        setLoading(false);
+        setUpcomingData(resData.results);
+        console.log(resData.results);
+      } catch (error) {
+        console.log(error);
+        setLoading(true);
+      }
+    };
     fetchUpcomingData();
   }, []);
+
+  
 
   return (
     <div className="poster-container">
@@ -52,19 +60,11 @@ function Poster() {
           counter++;
           if (counter < 6) {
             return (
-              <SwiperSlide
-                className="poster-swiper-card"
-                style={{
-                  backgroundImage: `url(${imgURL + upcomingMovie.poster_path})`,
-                }}
-              >
-                <div className="poster-swiper-card-inner"></div>
-              </SwiperSlide>
+             <PosterCard key={upcomingMovie.id} id={upcomingMovie.id} className='poster-card-cont'/>
             );
           }
         })}
       </Swiper>
-
       <Swiper
         onSwiper={setThumbsSwiper}
         loop={true}
@@ -76,19 +76,19 @@ function Poster() {
         className="small-swiper-cont mySwiper"
       >
         <SwiperSlide>
-          <img src={imgURL + upcomingData[0].poster_path} alt="" />
+          <img src={imgURL + "/mIBCtPvKZQlxubxKMeViO2UrP3q.jpg"} alt="" />
         </SwiperSlide>
         <SwiperSlide>
-          <img src={imgURL + upcomingData[1].poster_path} alt="" />
+          <img src={imgURL + "/9JBEPLTPSm0d1mbEcLxULjJq9Eh.jpg"} alt="" />
         </SwiperSlide>
         <SwiperSlide>
-          <img src={imgURL + upcomingData[2].poster_path} alt="" />
+          <img src={imgURL + "/ewF3IlGscc7FjgGEPcQvZsAsgAW.jpg"} alt="" />
         </SwiperSlide>
         <SwiperSlide>
-          <img src={imgURL + upcomingData[3].poster_path} alt="" />
+          <img src={imgURL + "/2lUYbD2C3XSuwqMUbDVDQuz9mqz.jpg"} alt="" />
         </SwiperSlide>
         <SwiperSlide>
-          <img src={imgURL + upcomingData[4].poster_path} alt="" />
+          <img src={imgURL + "/jwMMQR69Xz9AYtX4u2uYJgfAAev.jpg"} alt="" />
         </SwiperSlide>
       </Swiper>
     </div>
