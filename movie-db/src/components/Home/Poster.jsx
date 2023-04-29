@@ -41,6 +41,9 @@ function Poster() {
   }, []);
 
   
+  if(loading) {
+    <div>loading...</div>
+  }
 
   return (
     <div className="poster-container">
@@ -60,7 +63,16 @@ function Poster() {
           counter++;
           if (counter < 6) {
             return (
-             <PosterCard key={upcomingMovie.id} id={upcomingMovie.id} className='poster-card-cont'/>
+              <SwiperSlide
+              className="poster-swiper-card"
+              style={{
+                backgroundImage: `url(${
+                  imgURL +  upcomingMovie.poster_path
+                })`,
+              }}
+            >
+             <PosterCard key={upcomingMovie.id} id={upcomingMovie.id} className='poster-card-cont'/>             
+            </SwiperSlide>
             );
           }
         })}
