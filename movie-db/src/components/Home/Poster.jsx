@@ -67,7 +67,7 @@ function Poster() {
               className="poster-swiper-card"
               style={{
                 backgroundImage: `url(${
-                  imgURL +  upcomingMovie.poster_path
+                  imgURL +  upcomingMovie.backdrop_path
                 })`,
               }}
             >
