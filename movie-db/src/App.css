@@ -29,7 +29,7 @@
 
     --shadow-black: 0 1px 4px rgba(0, 0, 0, 0.3);
     --shadow-red:  0 2px 6px rgba(255, 15, 27, 0.8);
-    --shadow-white:  0 2px 5px rgba(121, 117, 117, 0.2);
+    --shadow-white:  0 6px 10px rgba(121, 117, 117, 0.3);
 }
 
 * {

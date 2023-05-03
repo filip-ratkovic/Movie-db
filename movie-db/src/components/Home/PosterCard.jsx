@@ -30,6 +30,18 @@ function PosterCard(props) {
     fetchUpcomingDetailsData();
   }, [props.id]);
 
+  let hour = 0; 
+  let minut = 0; 
+  const handleRunTime  = () => {
+      
+
+      hour = Math.floor(movieDetails.runtime / 60);
+      minut = movieDetails.runtime - (60 * hour)
+  }
+
+  handleRunTime()
+
+
   if (loading) {
     return <div>Loading...</div>;
   }
@@ -44,11 +56,12 @@ function PosterCard(props) {
       <div className="showed-text-cont">
         <h1>{movieDetails.title}</h1>
         <p>{movieDetails.release_date.slice(0, 4)}</p>
-        <div className="showed-rateDuration">
-          <p>{movieDetails.runtime}</p>
+        <div className="showed-durationNgenres" >
+          <p >{hour}hr {minut} min</p>
+          <p id = 'poster-duration'>|</p>
           <div className="showed-genres">
             {movieDetails.genres.map((genre) => {
-              return <li>{genre.name}</li>;
+              return <li><p>{genre.name}</p></li>;
             })}
           </div>
         </div>
