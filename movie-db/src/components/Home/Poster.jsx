@@ -83,6 +83,9 @@ function Poster() {
           }
         })}
       </Swiper>
+      <p className="header-small-cont">
+        Upcoming Movies
+      </p>
       <Swiper
         onSwiper={setThumbsSwiper}
         loop={true}
@@ -93,19 +96,21 @@ function Poster() {
         modules={[FreeMode, Navigation, Thumbs]}
         className="small-swiper-cont mySwiper"
       >
-        <SwiperSlide>
+                
+
+        <SwiperSlide className="small-swiper-card">
           <img src={imgURL + smallSliderPhoto[0]} alt="" />
         </SwiperSlide>
-        <SwiperSlide>
+        <SwiperSlide className="small-swiper-card">
           <img src={imgURL + smallSliderPhoto[1]} alt="" />
         </SwiperSlide>
-        <SwiperSlide>
+        <SwiperSlide className="small-swiper-card">
           <img src={imgURL + smallSliderPhoto[2]} alt="" />
         </SwiperSlide>
-        <SwiperSlide>
+        <SwiperSlide className="small-swiper-card">
           <img src={imgURL + smallSliderPhoto[3]} alt="" />
         </SwiperSlide>
-        <SwiperSlide>
+        <SwiperSlide className="small-swiper-card">
           <img src={imgURL + smallSliderPhoto[4]} alt="" />
         </SwiperSlide>
       </Swiper>

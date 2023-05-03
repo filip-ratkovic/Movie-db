@@ -1,10 +1,11 @@
-.swiper-container {
-    height: 100%;
-}
 .slider-container {
     height: 500px;
     width: calc(100% - 100px);
-    margin: 50px;
+    margin: 75px 50px;
+}
+
+.swiper-container {
+    height: 100%;
 }
 
 .trendingCard {

@@ -4,11 +4,11 @@ import { Navigation, Pagination, Scrollbar, A11y } from "swiper";
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/swiper-bundle.min.css";
 
-const trendingURL =
-  "https://api.themoviedb.org/3/tv/popular?api_key=2c2ddf06e3672c277286fe290e3b4cec&language=en-US&page=1";
+const trendingURL = 
+'https://api.themoviedb.org/3/movie/top_rated?api_key=2c2ddf06e3672c277286fe290e3b4cec&language=en-US&page=1'
 const imgURL = "https://image.tmdb.org/t/p/w500";
 
-function PopularSeries() {
+function TopRatedMovies() {
   const [trendingData, setTrendingData] = useState([]);
 
   const fetchTrendingData = async () => {
@@ -27,6 +27,9 @@ function PopularSeries() {
 
   return (
     <div className="slider-container">
+      <h1 className="headerSwiperCont">
+        Top Rated Movies
+      </h1>
       <Swiper
         modules={[Navigation, Pagination, A11y]}
         navigation
@@ -79,4 +82,4 @@ function PopularSeries() {
   );
 }
 
-export default PopularSeries;
+export default TopRatedMovies;

@@ -1,8 +1,10 @@
 import React, { useState } from 'react'
 import './home.css'
-import TrendingSlider from './TrendingSlider';
 import Poster from './Poster';
-import PopularSeries from './PopularSeries';
+import TopRatedMovies from './TopRatedMovies';
+import TrendingMovies from './TrendingMovies';
+import PopularShows from './PopularShows';
+import TopRatedShows from './TopRatedShows';
 
 function Home() {
   const [trendingData, setTrendingData] = useState();
@@ -11,8 +13,10 @@ function Home() {
   return (
    <main>
     <Poster/>
-      <TrendingSlider/>
-      <PopularSeries/>
+      <TrendingMovies/>
+      <PopularShows/>
+      <TopRatedMovies/>
+      <TopRatedShows/>
    </main>
   )
 }

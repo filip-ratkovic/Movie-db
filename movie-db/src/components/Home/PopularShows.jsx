@@ -5,10 +5,10 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/swiper-bundle.min.css";
 
 const trendingURL =
-  "https://api.themoviedb.org/3/trending/all/week?api_key=2c2ddf06e3672c277286fe290e3b4cec";
+  "https://api.themoviedb.org/3/tv/popular?api_key=2c2ddf06e3672c277286fe290e3b4cec&language=en-US&page=1";
 const imgURL = "https://image.tmdb.org/t/p/w500";
 
-function TrendingSlider() {
+function PopularShows() {
   const [trendingData, setTrendingData] = useState([]);
 
   const fetchTrendingData = async () => {
@@ -27,6 +27,9 @@ function TrendingSlider() {
 
   return (
     <div className="slider-container">
+      <h1 className="headerSwiperCont">
+        Popular Shows
+      </h1>
       <Swiper
         modules={[Navigation, Pagination, A11y]}
         navigation
@@ -64,9 +67,10 @@ function TrendingSlider() {
                 }}
               ></div>
               <div className="trending-card-info">
-                <h1>{movie.title}</h1>
+                <h1>{movie.name}</h1>
                <div className="trending-card-info-year">
-               <p>{movie.release_date?.toString().slice(0, 4)}</p>
+               <p>{movie.first_air_date
+               ?.toString().slice(0, 4)}</p>
                <p id='trending-rate'>{movie.vote_average.toFixed(1)}</p>
                </div>
               </div>
@@ -78,4 +82,4 @@ function TrendingSlider() {
   );
 }
 
-export default TrendingSlider;
+export default PopularShows;
