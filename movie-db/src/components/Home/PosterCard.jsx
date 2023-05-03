@@ -22,7 +22,6 @@ function PosterCard(props) {
         const resData = await data.json();
         setMovieDetails(resData);
         setLoading(false);
-        console.log(resData);
       } catch (error) {
         console.log(error);
         setLoading(true);

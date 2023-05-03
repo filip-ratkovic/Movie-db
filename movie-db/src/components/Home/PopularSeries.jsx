@@ -55,7 +55,6 @@ function PopularSeries() {
         }}
       >
         {trendingData.map((movie) => {
-          console.log(movie)
           return (
             <SwiperSlide className="trendingCard" key={movie.poster_path}>
               <div

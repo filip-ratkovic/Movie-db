@@ -21,6 +21,8 @@ function Poster() {
   const [thumbsSwiper, setThumbsSwiper] = useState(null);
   const [upcomingData, setUpcomingData] = useState([]);
   const [loading, setLoading] = useState(true);
+  const [smallSliderPhoto, setSmallSliderPhoto] = useState([]);
+
 
  
 
@@ -31,7 +33,11 @@ function Poster() {
         const resData = await data.json();
         setLoading(false);
         setUpcomingData(resData.results);
-        console.log(resData.results);
+        const smallPhotosArr = [];
+        for(let i = 0; i < 5; i++) {
+          smallPhotosArr.push(resData.results[i].poster_path)
+        }
+        setSmallSliderPhoto(smallPhotosArr)
       } catch (error) {
         console.log(error);
         setLoading(true);
@@ -88,19 +94,19 @@ function Poster() {
         className="small-swiper-cont mySwiper"
       >
         <SwiperSlide>
-          <img src={imgURL + "/mIBCtPvKZQlxubxKMeViO2UrP3q.jpg"} alt="" />
+          <img src={imgURL + smallSliderPhoto[0]} alt="" />
         </SwiperSlide>
         <SwiperSlide>
-          <img src={imgURL + "/9JBEPLTPSm0d1mbEcLxULjJq9Eh.jpg"} alt="" />
+          <img src={imgURL + smallSliderPhoto[1]} alt="" />
         </SwiperSlide>
         <SwiperSlide>
-          <img src={imgURL + "/ewF3IlGscc7FjgGEPcQvZsAsgAW.jpg"} alt="" />
+          <img src={imgURL + smallSliderPhoto[2]} alt="" />
         </SwiperSlide>
         <SwiperSlide>
-          <img src={imgURL + "/2lUYbD2C3XSuwqMUbDVDQuz9mqz.jpg"} alt="" />
+          <img src={imgURL + smallSliderPhoto[3]} alt="" />
         </SwiperSlide>
         <SwiperSlide>
-          <img src={imgURL + "/jwMMQR69Xz9AYtX4u2uYJgfAAev.jpg"} alt="" />
+          <img src={imgURL + smallSliderPhoto[4]} alt="" />
         </SwiperSlide>
       </Swiper>
     </div>
