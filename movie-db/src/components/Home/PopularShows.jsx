@@ -3,6 +3,7 @@ import "./trendingSlider.css";
 import { Navigation, Pagination, Scrollbar, A11y } from "swiper";
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/swiper-bundle.min.css";
+import { Link } from "react-router-dom";
 
 const trendingURL =
   "https://api.themoviedb.org/3/tv/popular?api_key=2c2ddf06e3672c277286fe290e3b4cec&language=en-US&page=1";
@@ -60,12 +61,13 @@ function PopularShows() {
         {trendingData.map((movie) => {
           return (
             <SwiperSlide className="trendingCard" key={movie.poster_path}>
+              <Link to={'/' + movie.name+ '/' + movie.id}>
               <div
                 className="trending-card-img"
                 style={{
                   backgroundImage: `url(${imgURL + movie.poster_path})`,
                 }}
-              ></div>
+              ></div></Link>
               <div className="trending-card-info">
                 <h1>{movie.name}</h1>
                <div className="trending-card-info-year">

@@ -1,55 +1,41 @@
 import React, { useState, useEffect } from "react";
 import "./poster.css";
 import { Swiper, SwiperSlide } from "swiper/react";
-
 import "swiper/css";
 import "swiper/css/free-mode";
 import "swiper/css/navigation";
 import "swiper/css/thumbs";
-
 import { FreeMode, Navigation, Thumbs } from "swiper";
-import Loading from "../Loading/Loading";
 import PosterCard from "./PosterCard";
-
 const upcomingURL =
   "https://api.themoviedb.org/3/movie/upcoming?api_key=2c2ddf06e3672c277286fe290e3b4cec&language=en-US&page=1";
 const imgURL = "https://image.tmdb.org/t/p/w500";
-let counter = 0;
-let counter2 = 0;
 
 function Poster() {
   const [thumbsSwiper, setThumbsSwiper] = useState(null);
   const [upcomingData, setUpcomingData] = useState([]);
-  const [loading, setLoading] = useState(true);
   const [smallSliderPhoto, setSmallSliderPhoto] = useState([]);
-
-
- 
+  let counter = 0
 
   useEffect(() => {
     const fetchUpcomingData = async () => {
       try {
         const data = await fetch(upcomingURL);
         const resData = await data.json();
-        setLoading(false);
         setUpcomingData(resData.results);
         const smallPhotosArr = [];
-        for(let i = 0; i < 5; i++) {
-          smallPhotosArr.push(resData.results[i].poster_path)
+        for (let i = 0; i < 5; i++) {
+          smallPhotosArr.push(resData.results[i].poster_path);
         }
-        setSmallSliderPhoto(smallPhotosArr)
+        setSmallSliderPhoto(smallPhotosArr);
       } catch (error) {
         console.log(error);
-        setLoading(true);
       }
     };
     fetchUpcomingData();
   }, []);
 
   
-  if(loading) {
-    <div>loading...</div>
-  }
 
   return (
     <div className="poster-container">
@@ -66,8 +52,8 @@ function Poster() {
         className="poster-swiper-container"
       >
         {upcomingData.map((upcomingMovie) => {
-          counter++;
-          if (counter < 6) {
+             counter ++
+              if (counter < 6) {
             return (
               <SwiperSlide
               className="poster-swiper-card"
@@ -81,11 +67,11 @@ function Poster() {
             </SwiperSlide>
             );
           }
-        })}
+        }
+        ) }
+
       </Swiper>
-      <p className="header-small-cont">
-        Upcoming Movies
-      </p>
+      <p className="header-small-cont">Upcoming Movies</p>
       <Swiper
         onSwiper={setThumbsSwiper}
         loop={true}
@@ -96,8 +82,6 @@ function Poster() {
         modules={[FreeMode, Navigation, Thumbs]}
         className="small-swiper-cont mySwiper"
       >
-                
-
         <SwiperSlide className="small-swiper-card">
           <img src={imgURL + smallSliderPhoto[0]} alt="" />
         </SwiperSlide>

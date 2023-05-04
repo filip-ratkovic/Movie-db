@@ -12,7 +12,7 @@ function Home() {
 
   return (
    <main>
-    <Poster/>
+      <Poster/>
       <TrendingMovies/>
       <PopularShows/>
       <TopRatedMovies/>

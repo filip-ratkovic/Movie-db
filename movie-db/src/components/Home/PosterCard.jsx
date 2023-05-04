@@ -23,7 +23,7 @@ function PosterCard(props) {
         setMovieDetails(resData);
         setLoading(false);
       } catch (error) {
-        console.log(error);
+        console.log(error);   
         setLoading(true);
       }
     };
