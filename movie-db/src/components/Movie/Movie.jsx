@@ -1,51 +1,63 @@
 import React, { useEffect, useState } from 'react'
 import ReactPaginate from 'react-paginate'
 
+import MovieCard from './MovieCard';
+import "./movie.css";
+import { Link } from 'react-router-dom';
+
 const movieURL = 
-'https://api.themoviedb.org/3/movie/popular?api_key=2c2ddf06e3672c277286fe290e3b4cec&language=en-US&page=1'
+'https://api.themoviedb.org/3/movie/popular?api_key=2c2ddf06e3672c277286fe290e3b4cec&language=en-US&page='
 
 function Movie() {
   const [movieData, setMovieData] = useState([]);
   const [apiData, setAPIData] = useState([]);
-  
+  const [loading, setLoading] = useState(true);
+  let currentPage = 1;
 
-  const fetchMovieData = async () => {
+  const fetchMovieData = async (currentPage) => {
     try {
-      const data = await fetch(movieURL);
+      const data = await fetch(movieURL + currentPage);
       const resData = await data.json();
       setMovieData(resData.results);
       setAPIData(resData)
+      setLoading(false)
     } catch (error) {
       console.log(error);
+      setLoading(false)
     }
   };
-
 
   useEffect(() => {
     
    fetchMovieData()
   }, [])
   
-console.log(movieData)
 
   const handlePageChange = (data) => {
-    console.log(data.selected)
+    fetchMovieData(data.selected+1)
+  }
+
+  if(loading) {
+    return(
+      <div>Loading</div>
+    )
   }
   return (
-   <main>
+   <main className="movie-main-container">
+      <div className="movies-container">
       {movieData.map((movie) => {
         return (
-          <div className="movie-card">
-            <h1>{movie.title}</h1>
-          </div>
+          <Link to={`/movie/${movie.id}`} >
+          <MovieCard movieData={movie} key={movie.id}/></Link>
         )
       })}
+      </div>
 
-      <ReactPaginate
+     <ReactPaginate
         previousLabel={"<<"}
         nextLabel={">>"}
         breakLabel={"..."}
-        pageCount={1000}
+        pageCount={100}
         marginPagesDisplayed={1}
         pageRangeDisplayed={3}
         onPageChange={handlePageChange}
