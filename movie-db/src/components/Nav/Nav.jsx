@@ -1,9 +1,10 @@
 import React, { useState } from "react";
 import "./nav.css";
-import { Link } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 
 function Nav() {
   const [activeSearch, setActiveSearch] = useState(false);
+  const id = useParams();
 
   const handleSearchToggle = () => {
       if (activeSearch) {
@@ -19,7 +20,7 @@ function Nav() {
       </div>
       <div className="nav-links">
         <Link to="/">Home</Link>
-        <Link to="/movies">Movie</Link>
+        <Link to={`/movies`}>Movie</Link>
         <Link to="/series">Series</Link>
       </div>
         <div className="search-cont">

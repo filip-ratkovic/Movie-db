@@ -12,6 +12,7 @@ const imgURL = "https://image.tmdb.org/t/p/w500";
 function PosterCard(props) {
   const [movieDetails, setMovieDetails] = useState("");
   const [loading, setLoading] = useState(true);
+  const [readMore, setReadMore] = useState(false);
   const id = props.id;
   const URL = `https://api.themoviedb.org/3/movie/${id}?api_key=2c2ddf06e3672c277286fe290e3b4cec&language=en-US`;
 
@@ -54,6 +55,7 @@ function PosterCard(props) {
         }}
       ></div>
       <div className="showed-text-cont">
+        <div className="showed-text-first-info">
         <h1>{movieDetails.title}</h1>
         <p>{movieDetails.release_date.slice(0, 4)}</p>
         <div className="showed-durationNgenres" >
@@ -70,7 +72,15 @@ function PosterCard(props) {
             <p>{movieDetails.vote_average.toFixed(1)}</p>
           </div>
 
-        <div className="showed-overview">{movieDetails.overview}</div>
+        <div className="showed-overview">
+          <p>
+                    {readMore ? movieDetails.overview : `${movieDetails.overview.substring(0, 120)}...`}
+                    <button className="poster-read-more" onClick={() => {
+                        setReadMore(!readMore);
+                    }}>{readMore ? "Show less" : "Read more"}</button>
+                </p>
+        </div>
+        </div>
         <div className="showed-buttons">
           <button id="watch-btn">Watch</button>
           <button id="add-btn">Add</button>

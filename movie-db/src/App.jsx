@@ -6,6 +6,7 @@ import Movie from './components/Movie/Movie'
 import Series from './components/Series/Series'
 
 import './App.css';
+import MovieSingle from "./components/Movie/MovieSingle";
 
 
 function App() {
@@ -15,7 +16,9 @@ function App() {
       <Nav/>
       <Routes>
         <Route path="/" element={<Home/>} />
+        <Route path="/movies/" element={<Movie/>} />
         <Route path="/movies" element={<Movie/>} />
+        <Route path="/movie/:id" element={<MovieSingle/>} />
         <Route path="/series" element={<Series/>} />
       </Routes>
     </div>

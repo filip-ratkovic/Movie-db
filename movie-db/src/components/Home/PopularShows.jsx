@@ -61,7 +61,7 @@ function PopularShows() {
         {trendingData.map((movie) => {
           return (
             <SwiperSlide className="trendingCard" key={movie.poster_path}>
-              <Link to={'/' + movie.name+ '/' + movie.id}>
+          <Link to={`/shows/${movie.id}`} >
               <div
                 className="trending-card-img"
                 style={{

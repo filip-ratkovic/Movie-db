@@ -1,8 +1,10 @@
 import React, { useEffect, useState } from "react";
+import {Link} from 'react-router-dom'
 import "./trendingSlider.css";
 import { Navigation, Pagination, Scrollbar, A11y } from "swiper";
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/swiper-bundle.min.css";
+
 
 const trendingURL = 
 'https://api.themoviedb.org/3/movie/top_rated?api_key=2c2ddf06e3672c277286fe290e3b4cec&language=en-US&page=1'
@@ -59,7 +61,10 @@ function TopRatedMovies() {
       >
         {trendingData.map((movie) => {
           return (
-            <SwiperSlide className="trendingCard" key={movie.poster_path}>
+
+            
+           <SwiperSlide className="trendingCard" key={movie.poster_path}>
+            <Link to={`/movie/${movie.id}`} > 
               <div
                 className="trending-card-img"
                 style={{
@@ -69,12 +74,13 @@ function TopRatedMovies() {
               <div className="trending-card-info">
                 <h1>{movie.name}</h1>
                <div className="trending-card-info-year">
-               <p>{movie.first_air_date
-               ?.toString().slice(0, 4)}</p>
+               <p>{movie.release_date?.toString().slice(0, 4)}</p>
                <p id='trending-rate'>{movie.vote_average.toFixed(1)}</p>
                </div>
               </div>
+              </Link>
             </SwiperSlide>
+       
           );
         })}
       </Swiper>
