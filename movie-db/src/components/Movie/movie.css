@@ -5,7 +5,7 @@
     padding: 0;
     box-sizing: border-box;
 }
-.movie-main-container a {
+.movies-container a {
     color: var(--white);
     text-decoration: none
 }
@@ -16,16 +16,34 @@
     gap: 20px;
     margin: 50px;
 }
+.movies-read-more {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: none;
+    place-items: center;
+    background-color: rgba(0, 0, 0, 0.7);
+    font-size: var(--fs-text2);
+}
+.movies-read-more p {
+    cursor: pointer;
+}
 
+.movie-card-container:hover .movies-read-more {
+    display: grid;
+}
 
 
 .movie-card-img {
     width: 100%;
+    position: relative;
 }
 
 .movie-card-img img {
     width: 100%;
     height: auto;
-
 }
+
 

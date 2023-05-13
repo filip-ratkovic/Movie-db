@@ -15,6 +15,9 @@ function MovieCard(props) {
         className="movie-card-img"
       >
         <img src={imgURL + movieData.poster_path} alt="" />
+        <div className="movies-read-more">
+        <p>Read more </p>
+      </div>
       </div>
       <div className="trending-card-info">
         <h1>{movieData.title}</h1>
@@ -23,6 +26,7 @@ function MovieCard(props) {
           <p id="trending-rate">{movieData.vote_average.toFixed(1)}</p>
         </div>
       </div>
+     
     </div>
   );
 }
