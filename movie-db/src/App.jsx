@@ -3,16 +3,17 @@ import Nav from './components/Nav/Nav'
 import { Route, Routes } from "react-router-dom";
 import Home from './components/Home/Home'
 import Movie from './components/Movie/Movie'
-import Series from './components/Series/Series'
+import Shows from './components/Shows/Shows'
 
 import './App.css';
 import MovieSingle from "./components/Movie/MovieSingle";
+import ShowsSinglePage from "./components/Shows/ShowsSinglePage";
 
 
 function App() {
   const [searchData, setSearchData] = useState(false)
 
-  
+
   const getSearchData = (data) => {
       setSearchData(data)
   }
@@ -25,7 +26,8 @@ function App() {
         <Route path="/" element={<Home/>} />
         <Route path="/movies" element={<Movie searchData={searchData} />} />
         <Route path="/movie/:id" element={<MovieSingle/>} />
-        <Route path="/series" element={<Series/>} />
+        <Route path="/shows" element={<Shows/>} />
+        <Route path="/shows/:id" element={<ShowsSinglePage/>}/>
       </Routes>
     </div>
   );

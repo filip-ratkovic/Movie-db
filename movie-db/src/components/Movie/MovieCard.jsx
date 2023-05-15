@@ -6,9 +6,7 @@ function MovieCard(props) {
   const [loading, setLoading] = useState(true);
   const movieData = props.movieData;
 
-  if (loading) {
-    <div>dadsa</div>;
-  }
+ 
   return (
     <div className="movie-card-container">
       <div

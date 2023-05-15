@@ -22,7 +22,7 @@ function Nav(props) {
       <div className="nav-links">
         <Link to="/">Home</Link>
         <Link to={`/movies`}>Movie</Link>
-        <Link to="/series">Series</Link>
+        <Link to="/shows">Shows</Link>
       </div>
         <div className="search-cont">
           <form className={`nav-search ${activeSearch ? 'active' : ''}`}>

@@ -1,27 +1,25 @@
 import React, { useEffect, useState } from 'react'
 import ReactPaginate from 'react-paginate'
 
-import MovieCard from './MovieCard';
-import "./movie.css";
+import ShowsCard from './ShowsCard';
 import { Link } from 'react-router-dom';
 
-const movieURL = 
-'https://api.themoviedb.org/3/movie/popular?api_key=2c2ddf06e3672c277286fe290e3b4cec&language=en-US&page='
-const searchURL = 'https://api.themoviedb.org/3/search/movie?api_key=2c2ddf06e3672c277286fe290e3b4cec&language=en-US&page=1&include_adult=false&query='
+const showsURL = 
+'https://api.themoviedb.org/3/tv/popular?api_key=2c2ddf06e3672c277286fe290e3b4cec&language=en-US&page=';
 
-function Movie(props) {
-  const [movieData, setMovieData] = useState([]);
+function Shows() {
+  const [showsData, setShowsData] = useState([]);
   // const [apiData, setAPIData] = useState([]);
   const [loading, setLoading] = useState(true);
 
-  const searchData = props.searchData;
 
-  const fetchMovieData = async (currentPage) => {
+  const fetchShowsData = async (currentPage) => {
     try {
-        const data = await fetch(movieURL + currentPage);
+        const data = await fetch(showsURL + currentPage);
         const resData = await data.json();
-        setMovieData(resData.results);
-        // setAPIData(resData)
+        setShowsData(resData.results);
+        console.log(resData.results)
+        // setAPIData(resData.results)
         setLoading(false)
       
     } catch (error) {
@@ -30,23 +28,16 @@ function Movie(props) {
     }
   };
 
-  const searchMovieData = async () => {
-      const data = await fetch(searchURL + searchData);
-      const resData = await data.json();
-      setMovieData(resData.results);
-      // setAPIData(resData)
-      setLoading(false)
-  }
 
 
   useEffect(() => {
     
-   fetchMovieData()
+   fetchShowsData()
   }, [])
   
 
   const handlePageChange = (data) => {
-    fetchMovieData(data.selected+1)
+    fetchShowsData(data.selected+1)
   }
 
   if(loading) {
@@ -58,10 +49,10 @@ function Movie(props) {
   return (
    <main className="movie-main-container">
       <div className="movies-container">
-      {movieData.map((movie) => {
+      {showsData.map((show) => {
         return (
-          <Link to={`/movie/${movie.id}`} >
-          <MovieCard movieData={movie} key={movie.id}/></Link>
+          <Link to={`/shows/${show.id}`} >
+          <ShowsCard showData={show} key={show.id}/></Link>
         )
       })}
       </div>
@@ -87,4 +78,4 @@ function Movie(props) {
   )
 }
 
-export default Movie
+export default Shows
