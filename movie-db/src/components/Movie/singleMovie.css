@@ -1,0 +1,50 @@
+.sm-conteiner {
+    width: 100vw;
+}
+
+.sm-main-cont {
+    width: 100%;
+    height: 100vh;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+   
+    filter: blur(10px);
+    position: relative;
+}
+.sm-info-cont {
+    width: 100%;
+    height: 100%;
+    background-color: rgba(255, 255, 255, 0.2);
+    z-index: 1;
+    position: absolute;
+    top: 0;
+    left: 0;
+    padding: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 70px;
+}
+
+.sm-img-cont {
+    width: 30%;
+    height: 80%;
+    margin-right: 50px;
+    display: flex;
+    justify-content: center;
+}
+
+.sm-img-cont img {
+    width: 80%;
+    height: auto;
+    border-radius: 10px;
+    box-shadow: var(--shadow-white);
+    border: solid 1px var(--light-gray);
+}
+
+.sm-text-cont {
+    width: 50%;
+    height: 80%;
+}
+
