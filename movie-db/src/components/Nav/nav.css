@@ -40,7 +40,7 @@
     justify-content: space-between;
     flex-direction: row-reverse;
     padding: 4px 10px 4px 10px;
-    transition: width 1s ease, background-color 1s ease;
+    transition: width 0.3s ease, background-color 0.3s ease;
     width:50px;
 }
 

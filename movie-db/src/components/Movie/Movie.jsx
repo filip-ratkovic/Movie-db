@@ -7,25 +7,38 @@ import { Link } from 'react-router-dom';
 
 const movieURL = 
 'https://api.themoviedb.org/3/movie/popular?api_key=2c2ddf06e3672c277286fe290e3b4cec&language=en-US&page='
+const searchURL = 'https://api.themoviedb.org/3/search/movie?api_key=2c2ddf06e3672c277286fe290e3b4cec&language=en-US&page=1&include_adult=false&query='
 
-function Movie() {
+function Movie(props) {
   const [movieData, setMovieData] = useState([]);
-  const [apiData, setAPIData] = useState([]);
+  // const [apiData, setAPIData] = useState([]);
   const [loading, setLoading] = useState(true);
-  let currentPage = 1;
+
+  const searchData = props.searchData;
 
   const fetchMovieData = async (currentPage) => {
     try {
-      const data = await fetch(movieURL + currentPage);
-      const resData = await data.json();
-      setMovieData(resData.results);
-      setAPIData(resData)
-      setLoading(false)
+        const data = await fetch(movieURL + currentPage);
+        const resData = await data.json();
+        setMovieData(resData.results);
+        // setAPIData(resData)
+        setLoading(false)
+      
     } catch (error) {
       console.log(error);
       setLoading(false)
     }
   };
+
+  const searchMovieData = async () => {
+      const data = await fetch(searchURL + searchData);
+      const resData = await data.json();
+      setMovieData(resData.results);
+      // setAPIData(resData)
+      setLoading(false)
+  }
+
+  // getSearchDataFunction(searchMovieData)
 
   useEffect(() => {
     
@@ -42,6 +55,7 @@ function Movie() {
       <div>Loading</div>
     )
   }
+  
   return (
    <main className="movie-main-container">
       <div className="movies-container">
