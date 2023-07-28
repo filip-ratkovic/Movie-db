@@ -2,17 +2,16 @@ import React, { useState } from "react";
 import "./nav.css";
 import { Link } from "react-router-dom";
 
-function Nav(props) {
-  const getSearchData = props.getSearchData;
-  const [activeSearch, setActiveSearch] = useState(false);
+function Nav() {
+  // const [activeSearch, setActiveSearch] = useState(false);
 
-  const handleSearchToggle = () => {
-      if (activeSearch) {
-        setActiveSearch(false);
-      } else {
-        setActiveSearch(true);
-      }
-  }
+  // const handleSearchToggle = () => {
+  //     if (activeSearch) {
+  //       setActiveSearch(false);
+  //     } else {
+  //       setActiveSearch(true);
+  //     }
+  // }
 
   return (
     <main className="nav" id="nav">
@@ -24,7 +23,7 @@ function Nav(props) {
         <Link to={`/movies`}>Movie</Link>
         <Link to="/shows">Shows</Link>
       </div>
-        <div className="search-cont">
+        {/* <div className="search-cont">
           <form className={`nav-search ${activeSearch ? 'active' : ''}`}>
           <input type="text" placeholder="Search" className={`nav-input ${activeSearch ? 'active' : ''}`}
           onSubmit={((event)=> {
@@ -34,7 +33,7 @@ function Nav(props) {
           <img src="https://img.icons8.com/ios/50/null/search--v1.png" id='nav-search-img' alt="Search-icon"
            onClick= {handleSearchToggle} />
         </form>
-        </div>
+        </div> */}
      </main>
   );
 }

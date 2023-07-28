@@ -48,3 +48,52 @@
     height: 80%;
 }
 
+.showed-durationNgenres {
+    display: flex;
+}
+
+.poster-duration {
+    color: var(--light-grey);
+    padding: 0 10px;
+}
+
+.showed-genres {
+    display: flex;
+}
+
+.showed-genres p {
+    margin-right: 5px;
+}
+
+.showed-genres li {
+    list-style-type: none;
+}
+
+.sm-overview {
+    word-spacing: 1.2px;
+    line-height: 1.5;
+    letter-spacing: .8px;
+}
+/* 
+.showed-buttons button {
+    padding: 8px 16px;
+    border-radius: 20px;
+    color: var(--white);
+    cursor: pointer;
+    font-size: var(--fs-text);
+    outline: none;
+    border: none;
+    margin-right: 20px;
+    width: 120px;
+    letter-spacing: 1px;
+}
+
+#watch-btn {
+    background-image: var(--redGradient);
+    box-shadow: var(--shadow-red);
+}
+
+#add-btn {
+    background-color: var(--dark-black);
+    box-shadow: var(--shadow-white);
+} */
