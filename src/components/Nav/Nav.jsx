@@ -1,7 +1,8 @@
 import React, { useState } from "react";
 import "./nav.css";
 import { Link } from "react-router-dom";
-
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faSearch as searchIcon } from "@fortawesome/free-solid-svg-icons";
 function Nav() {
   // const [activeSearch, setActiveSearch] = useState(false);
 
@@ -23,17 +24,9 @@ function Nav() {
         <Link to={`/movies`}>Movie</Link>
         <Link to="/shows">Shows</Link>
       </div>
-        {/* <div className="search-cont">
-          <form className={`nav-search ${activeSearch ? 'active' : ''}`}>
-          <input type="text" placeholder="Search" className={`nav-input ${activeSearch ? 'active' : ''}`}
-          onSubmit={((event)=> {
-              getSearchData(event.target.value)
-          })} 
-          />
-          <img src="https://img.icons8.com/ios/50/null/search--v1.png" id='nav-search-img' alt="Search-icon"
-           onClick= {handleSearchToggle} />
-        </form>
-        </div> */}
+        <div className="search-cont">
+        <FontAwesomeIcon icon={searchIcon} style={{fontSize:"20px", color:"grey"}}/>
+        </div>
      </main>
   );
 }
