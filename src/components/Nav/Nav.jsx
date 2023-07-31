@@ -1,18 +1,10 @@
 import React, { useState } from "react";
 import "./nav.css";
 import { Link } from "react-router-dom";
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faSearch as searchIcon } from "@fortawesome/free-solid-svg-icons";
-function Nav() {
-  // const [activeSearch, setActiveSearch] = useState(false);
+import SearchCard from "./SearchCard";
 
-  // const handleSearchToggle = () => {
-  //     if (activeSearch) {
-  //       setActiveSearch(false);
-  //     } else {
-  //       setActiveSearch(true);
-  //     }
-  // }
+function Nav() {
+ 
 
   return (
     <main className="nav" id="nav">
@@ -24,9 +16,7 @@ function Nav() {
         <Link to={`/movies`}>Movie</Link>
         <Link to="/shows">Shows</Link>
       </div>
-        <div className="search-cont">
-        <FontAwesomeIcon icon={searchIcon} style={{fontSize:"20px", color:"grey"}}/>
-        </div>
+       <SearchCard/>
      </main>
   );
 }
