@@ -1,11 +1,11 @@
 import React, { useState, useEffect, axios } from "react";
 import "./poster.css";
-import { SwiperSlide } from "swiper/react";
-
 import "swiper/css";
 import "swiper/css/free-mode";
 import "swiper/css/navigation";
 import "swiper/css/thumbs";
+import { Star } from "@mui/icons-material";
+
 
 const imgURL = "https://image.tmdb.org/t/p/w500";
 
@@ -56,34 +56,33 @@ function PosterCard(props) {
       ></div>
       <div className="showed-text-cont">
         <div className="showed-text-first-info">
-        <h1>{movieDetails.title}</h1>
-        <p>{movieDetails.release_date.slice(0, 4)}</p>
+        <h1  className="header-poster-card">{movieDetails.title}</h1>
         <div className="showed-durationNgenres" >
           <p >{hour}hr {minut} min</p>
           <p id = 'poster-duration'>|</p>
-          <div className="showed-genres">
+          <p>{movieDetails.release_date.slice(0, 4)}</p>
+
+        </div>
+        <div className="showed-genres">
             {movieDetails.genres.map((genre) => {
               return <li><p>{genre.name}</p></li>;
             })}
           </div>
-        </div>
+       
 
         <div className="showed-rate">
-            <p>{movieDetails.vote_average.toFixed(1)}</p>
+            <p><span><Star style={{color:"#faaf00", fontSize:"26px"}}/>  </span>
+            {movieDetails.vote_average.toFixed(1)}<span id="showed-rate-10"> / 10</span></p>
           </div>
 
         <div className="showed-overview">
           <p>
-                    {readMore ? movieDetails.overview : `${movieDetails.overview.substring(0, 120)}...`}
-                    <button className="poster-read-more" onClick={() => {
+                    {readMore ? movieDetails.overview : `${movieDetails.overview.substring(0, 150)}`}
+                   { movieDetails.overview.length<150 ? null : <button className="poster-read-more" onClick={() => {
                         setReadMore(!readMore);
-                    }}>{readMore ? "Show less" : "Read more"}</button>
+                    }}>{readMore ? "... Show less" : "... Read more"}</button>}
                 </p>
         </div>
-        </div>
-        <div className="showed-buttons">
-          <button id="watch-btn">Watch</button>
-          <button id="add-btn">Add</button>
         </div>
       </div>
     </div>
