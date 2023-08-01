@@ -2,9 +2,6 @@ import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import "./singleMovie.css";
 import { Star } from "@mui/icons-material";
-import { Navigation, Pagination, Scrollbar, A11y } from "swiper/modules";
-import { Swiper, SwiperSlide } from "swiper/react";
-import "swiper/css";
 
 function MovieSingle() {
   const [movieDetails, setMovieDetails] = useState();
@@ -36,9 +33,10 @@ function MovieSingle() {
   };
 
   handleRunTime();
+
   useEffect(() => {
     fetchMovieDetails();
-  }, []);
+  }, [paramsID]);
 
   useEffect(() => {
     function handleResize() {
@@ -72,22 +70,7 @@ function MovieSingle() {
           <h5 style={{ color: "#b9bec2" }}>
             "{movieDetails.tagline && movieDetails.tagline}"
           </h5>
-          <div className="showed-durationNgenres">
-            <p>
-              {hour}hr {minut} min
-            </p>
-            <p className="poster-duration">|</p>
-            <p>{movieDetails.release_date.slice(0, 4)}</p>
-          </div>
-          <div className="showed-genres">
-            {movieDetails.genres.map((genre) => {
-              return (
-                <li>
-                  <p>{genre.name}</p>
-                </li>
-              );
-            })}
-          </div>
+         
 
           <div className="showed-rate">
             <p>

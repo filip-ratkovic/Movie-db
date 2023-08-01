@@ -62,11 +62,15 @@ console.log(paramsID)
               <p className="poster-duration">|</p>
              <p>Seasons: {showDetails.number_of_seasons}</p>
             </div>
+
+            <div className="movie-test">
+          
             <div className="trending-card-info-year" style={{justifyContent:"center"}}>
           <p>{showDetails.first_air_date?.toString().slice(0, 4)} - 
           
           {`${showDetails.in_production ? '' : ' '+ showDetails.last_air_date?.toString().slice(0, 4)}`}</p>
         </div>
+              {windowWidth < 600 ? <p className="poster-duration">|</p> : null}
             <div className="showed-genres">
               {showDetails.genres?.map((genre) => {
                 return (
@@ -76,6 +80,7 @@ console.log(paramsID)
                 );
               })}
             </div>
+          </div>
   
             <div className="showed-rate">
               <p>

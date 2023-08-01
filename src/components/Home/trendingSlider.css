@@ -29,7 +29,7 @@
 }
 
 .trending-card-info h1 {
-    font-size: var(--fs-text);
+    font-size: var(--fs-text2);
     margin: 5px 0;
 }
 
@@ -46,8 +46,21 @@
   @media  (max-width: 690px) {
     .slider-container {
       height:90vh;
-      margin: 50px 10px;
-      width: 95%;
+      margin: 50px 0px;
+      width: 100%;
+    }
+    .swiper-container {
+        margin: 15px;
+    }
+
+    .headerSwiperCont {
+        text-align: center;
+    }
+    .trending-card-info {
+        font-size: 24px;
+    }
+    .trending-card-info h1 {
+        font-size: 28px;
     }
   }
   

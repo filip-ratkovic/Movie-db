@@ -13,6 +13,7 @@ function PosterCard(props) {
   const [movieDetails, setMovieDetails] = useState("");
   const [loading, setLoading] = useState(true);
   const [readMore, setReadMore] = useState(false);
+  const [windowWidth, setWindowWidth] = useState(window.innerWidth)
   const id = props.id;
   const URL = `https://api.themoviedb.org/3/movie/${id}?api_key=2c2ddf06e3672c277286fe290e3b4cec&language=en-US`;
 
@@ -42,6 +43,13 @@ function PosterCard(props) {
 
   handleRunTime()
 
+  useEffect(() => {
+    function handleResize() {
+      setWindowWidth(window.innerWidth)
+}
+    window.addEventListener('resize', handleResize)
+  })
+
 
   if (loading) {
     return <div>Loading...</div>;
@@ -51,7 +59,7 @@ function PosterCard(props) {
       <div
         className="poster-swiper-image"
         style={{
-          backgroundImage: `url(${imgURL + movieDetails.poster_path})`,
+          backgroundImage: `url(${windowWidth > "800" ? imgURL+ movieDetails.poster_path : imgURL+ movieDetails.backdrop_path })`,
         }}
       ></div>
       <div className="showed-text-cont">

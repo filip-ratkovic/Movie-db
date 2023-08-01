@@ -179,11 +179,16 @@ left: 0;
 @media (max-width:800px) {
     .poster-swiper-card-inner {
         flex-direction: column;
-        padding: 20px;
+        padding: 0px;
         align-items: center;
     }
-    .poster-swiper-image {
-       display: none;
+     .poster-swiper-image {
+        width: 100%;
+        background-position: center;
+      margin: 0;
+      border-radius: 0 0 40% 40%;
+      height: 300px;
+      margin-bottom: 30px;
     }
 
     .showed-text-cont {
@@ -200,7 +205,6 @@ left: 0;
 @media (max-width:460px) {
     .poster-swiper-card-inner {
         flex-direction: column;
-        padding: 20px;
         align-items: center;
         text-align: center;
     }
@@ -226,5 +230,11 @@ left: 0;
 @media (max-width: 390px) {
     .showed-text-cont {
        justify-content: center;
+    }
+}
+
+@media (min-width: 1500px) {
+    .showed-overview p {
+        font-size: 1.3rem;
     }
 }

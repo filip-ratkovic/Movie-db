@@ -15,6 +15,7 @@ function Poster() {
   const [thumbsSwiper, setThumbsSwiper] = useState(null);
   const [upcomingData, setUpcomingData] = useState([]);
   const [smallSliderPhoto, setSmallSliderPhoto] = useState([]);
+  const [windowWidth, setWindowWidth] = useState(window.innerWidth);
   let counter = 0
 
   useEffect(() => {
@@ -35,7 +36,13 @@ function Poster() {
     fetchUpcomingData();
   }, []);
 
-  
+  useEffect(() => {
+    function handleResize() {
+      setWindowWidth(window.innerWidth)
+}
+    window.addEventListener('resize', handleResize)
+  })
+
 
   return (
     <div className="poster-container">
@@ -59,7 +66,7 @@ function Poster() {
               className="poster-swiper-card"
               style={{
                 backgroundImage: `url(${
-                  imgURL +  upcomingMovie.backdrop_path
+                  windowWidth < "800" ? imgURL+ upcomingMovie.poster_path : imgURL+ upcomingMovie.backdrop_path
                 })`,
               }}
             >

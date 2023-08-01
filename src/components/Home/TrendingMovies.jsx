@@ -29,7 +29,6 @@ function TrendingMovies() {
   return (
     <div className="slider-container">
       <h1 className="headerSwiperCont">Trending Movies</h1>
-
       <Swiper
         modules={[Navigation, Pagination, A11y]}
         navigation
@@ -52,7 +51,7 @@ function TrendingMovies() {
           440: {
             slidesPerView: 2,
             spaceBetween: 20,
-          },
+          }
         }}
       >
         {trendingData.map((movie) => {

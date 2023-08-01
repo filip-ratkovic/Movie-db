@@ -47,3 +47,12 @@
 }
 
 
+@media (max-width:600px) {
+    .movies-container{
+        margin: 20px;
+    }
+
+    .movies-read-more p{
+        font-size: 35px;
+    }
+}
