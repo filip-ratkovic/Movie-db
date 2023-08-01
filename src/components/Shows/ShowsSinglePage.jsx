@@ -53,7 +53,7 @@ console.log(paramsID)
           <div className="sm-text-cont">
             <h1>{showDetails.name}</h1>
             <h5 style={{ color: "#b9bec2" }}>
-              "{showDetails.tagline && showDetails.tagline}"
+              {showDetails.tagline && `"` + showDetails.tagline +`"`}
             </h5>
             <div className="showed-durationNgenres">
               <p>
@@ -65,7 +65,7 @@ console.log(paramsID)
 
             <div className="movie-test">
           
-            <div className="trending-card-info-year" style={{justifyContent:"center"}}>
+            <div className="movie-year" style={{justifyContent:"center"}}>
           <p>{showDetails.first_air_date?.toString().slice(0, 4)} - 
           
           {`${showDetails.in_production ? '' : ' '+ showDetails.last_air_date?.toString().slice(0, 4)}`}</p>
