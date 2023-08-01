@@ -10,7 +10,7 @@ function Nav() {
         <Link to="/">
           <img
             src="https://img.icons8.com/color/48/null/netflix.png"
-            alt="netflix logo"
+            alt="netflix  logo"
           />
         </Link>
       </div>
