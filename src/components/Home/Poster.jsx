@@ -23,7 +23,6 @@ function Poster() {
         const data = await fetch(upcomingURL);
         const resData = await data.json();
         setUpcomingData(resData.results);
-        console.log(resData.results)
         const smallPhotosArr = [];
         for (let i = 0; i < 5; i++) {
           smallPhotosArr.push(resData.results[i].poster_path);

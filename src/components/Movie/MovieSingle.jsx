@@ -1,9 +1,15 @@
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import "./singleMovie.css";
+import { Star } from "@mui/icons-material";
+import { Navigation, Pagination, Scrollbar, A11y } from "swiper/modules";
+import { Swiper, SwiperSlide } from "swiper/react";
+import "swiper/css";
+
 function MovieSingle() {
   const [movieDetails, setMovieDetails] = useState();
   const [loading, setLoading] = useState(true);
+  const [windowWidth, setWindowWidth] = useState(window.innerWidth)
 
   const imdbURL = "https://www.imdb.com/title/";
   const imgURL = "https://image.tmdb.org/t/p/w500";
@@ -34,9 +40,17 @@ function MovieSingle() {
     fetchMovieDetails();
   }, []);
 
+  useEffect(() => {
+    function handleResize() {
+      setWindowWidth(window.innerWidth)
+}
+    window.addEventListener('resize', handleResize)
+  })
+
   if (loading) {
     return <div>Loading...</div>;
   }
+
   return (
     <div className="sm-conteiner">
       <div
@@ -49,39 +63,55 @@ function MovieSingle() {
       <div className="sm-info-cont">
         <div className="sm-img-cont">
           <img
-            src={imgURL + movieDetails.poster_path}
+            src={windowWidth > "600" ? imgURL+ movieDetails.poster_path : imgURL+ movieDetails.backdrop_path }
             alt={movieDetails.title + " poster"}
           />
         </div>
         <div className="sm-text-cont">
           <h1>{movieDetails.title}</h1>
-          <p>{movieDetails.release_date.slice(0, 4)}</p>
+          <h5 style={{ color: "#b9bec2" }}>
+            "{movieDetails.tagline && movieDetails.tagline}"
+          </h5>
           <div className="showed-durationNgenres">
             <p>
               {hour}hr {minut} min
             </p>
             <p className="poster-duration">|</p>
-            <div className="showed-genres">
-              {movieDetails.genres.map((genre) => {
-                return (
-                  <li>
-                    <p>{genre.name}</p>
-                  </li>
-                );
-              })}
-            </div>
+            <p>{movieDetails.release_date.slice(0, 4)}</p>
+          </div>
+          <div className="showed-genres">
+            {movieDetails.genres.map((genre) => {
+              return (
+                <li>
+                  <p>{genre.name}</p>
+                </li>
+              );
+            })}
           </div>
 
           <div className="showed-rate">
-            <p>{movieDetails.vote_average.toFixed(1)}</p>
+            <p>
+              <span>
+                <Star style={{ color: "#faaf00", fontSize: "26px" }} />{" "}
+              </span>
+              {movieDetails.vote_average?.toFixed(1)}
+              <span id="showed-rate-10"> / 10</span>
+            </p>
           </div>
-          <div className="sm-overview">
-              {movieDetails.overview}
-          </div>
+          {/* <div className="company-cont">
+            <p style={{marginBottom:"0"}}>Production Companies:</p>
+            <div className="company-name">
+          {movieDetails.production_companies.map((company, index) => {
+          return  <p> {company.name} {index < movieDetails.production_companies.length-1? "," : "."} </p>
+          })}
+            </div>
+          </div> */}
+          <div className="sm-overview">{movieDetails.overview}</div>
+          <a href={`${imdbURL}${movieDetails.imdb_id}`}></a>
           <div className="showed-buttons">
-          <button id="watch-btn">Watch</button>
-          <button id="add-btn">Add</button>
-        </div>
+            <button id="watch-btn">Watch</button>
+            <button id="add-btn">+ My List</button>
+          </div>
         </div>
       </div>
     </div>

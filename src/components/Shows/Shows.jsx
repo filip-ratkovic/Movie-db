@@ -5,7 +5,7 @@ import ShowsCard from './ShowsCard';
 import { Link } from 'react-router-dom';
 
 const showsURL = 
-'https://api.themoviedb.org/3/tv/popular?api_key=2c2ddf06e3672c277286fe290e3b4cec&language=en-US&page=';
+'https://api.themoviedb.org/3/tv/top_rated?api_key=2c2ddf06e3672c277286fe290e3b4cec&language=en-US&page=';
 
 function Shows() {
   const [showsData, setShowsData] = useState([]);
