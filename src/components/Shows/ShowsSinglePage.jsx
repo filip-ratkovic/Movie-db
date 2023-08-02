@@ -64,7 +64,7 @@ function ShowsSinglePage() {
           </div>
 
           <div className="movie-test">
-            <div className="movie-year" style={{ justifyContent: "center" }}>
+            <div className="movie-year">
               <p>
                 {showDetails.first_air_date?.toString().slice(0, 4)} -
                 {`${
