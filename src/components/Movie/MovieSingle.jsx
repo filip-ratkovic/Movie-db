@@ -6,7 +6,7 @@ import { Star } from "@mui/icons-material";
 function MovieSingle() {
   const [movieDetails, setMovieDetails] = useState();
   const [loading, setLoading] = useState(true);
-  const [windowWidth, setWindowWidth] = useState(window.innerWidth)
+  const [windowWidth, setWindowWidth] = useState(window.innerWidth);
 
   const imdbURL = "https://www.imdb.com/title/";
   const imgURL = "https://image.tmdb.org/t/p/w500";
@@ -40,10 +40,10 @@ function MovieSingle() {
 
   useEffect(() => {
     function handleResize() {
-      setWindowWidth(window.innerWidth)
-}
-    window.addEventListener('resize', handleResize)
-  })
+      setWindowWidth(window.innerWidth);
+    }
+    window.addEventListener("resize", handleResize);
+  });
 
   if (loading) {
     return <div>Loading...</div>;
@@ -61,7 +61,11 @@ function MovieSingle() {
       <div className="sm-info-cont">
         <div className="sm-img-cont">
           <img
-            src={windowWidth > "600" ? imgURL+ movieDetails.poster_path : imgURL+ movieDetails.backdrop_path }
+            src={
+              windowWidth > "600"
+                ? imgURL + movieDetails.poster_path
+                : imgURL + movieDetails.backdrop_path
+            }
             alt={movieDetails.title + " poster"}
           />
         </div>
@@ -70,8 +74,23 @@ function MovieSingle() {
           <h5 style={{ color: "#b9bec2" }}>
             "{movieDetails.tagline && movieDetails.tagline}"
           </h5>
-         
 
+          <div className="movie-year">
+            <p>{movieDetails.release_date?.toString().slice(0, 4)}</p>
+            <p className="poster-duration">|</p>
+            <p>
+              {hour}h:{minut}min
+            </p>
+          </div>
+          <div className="showed-genres">
+            {movieDetails.genres?.map((genre) => {
+              return (
+                <li>
+                  <p>{genre.name}</p>
+                </li>
+              );
+            })}
+          </div>
           <div className="showed-rate">
             <p>
               <span>
