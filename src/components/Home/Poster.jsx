@@ -66,7 +66,7 @@ function Poster() {
               className="poster-swiper-card"
               style={{
                 backgroundImage: `url(${
-                  windowWidth < "900" ? imgURL+ upcomingMovie.poster_path : imgURL+ upcomingMovie.backdrop_path
+                  windowWidth < "600" ? imgURL+ upcomingMovie.poster_path : imgURL+ upcomingMovie.backdrop_path
                 })`,
               }}
             >

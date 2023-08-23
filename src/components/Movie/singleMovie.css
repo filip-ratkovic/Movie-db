@@ -114,13 +114,15 @@
 }
 
 @media (max-width: 750px) {
-  .sm-img-cont img {
-    height: 80%;
-  }
+  
   .sm-img-cont {
     display: flex;
     flex-direction: column;
     justify-content: center;
+  }
+  .sm-text-cont .showed-genres {
+    display: flex;
+    flex-wrap: wrap;
   }
 }
 
