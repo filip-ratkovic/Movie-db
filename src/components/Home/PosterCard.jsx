@@ -59,7 +59,7 @@ function PosterCard(props) {
       <div
         className="poster-swiper-image"
         style={{
-          backgroundImage: `url(${windowWidth > "800" ? imgURL+ movieDetails.poster_path : imgURL+ movieDetails.backdrop_path })`,
+          backgroundImage: `url(${windowWidth > "900" ? imgURL+ movieDetails.poster_path : imgURL+ movieDetails.backdrop_path })`,
         }}
       ></div>
       <div className="showed-text-cont">

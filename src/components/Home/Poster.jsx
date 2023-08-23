@@ -66,7 +66,7 @@ function Poster() {
               className="poster-swiper-card"
               style={{
                 backgroundImage: `url(${
-                  windowWidth < "800" ? imgURL+ upcomingMovie.poster_path : imgURL+ upcomingMovie.backdrop_path
+                  windowWidth < "900" ? imgURL+ upcomingMovie.poster_path : imgURL+ upcomingMovie.backdrop_path
                 })`,
               }}
             >
@@ -89,6 +89,7 @@ function Poster() {
         modules={[FreeMode, Navigation, Thumbs]}
         className="small-swiper-cont mySwiper"
       >
+
         <SwiperSlide className="small-swiper-card">
           <img src={imgURL + smallSliderPhoto[0]} alt="" />
         </SwiperSlide>

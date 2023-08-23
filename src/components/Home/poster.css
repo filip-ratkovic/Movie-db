@@ -6,6 +6,7 @@
 .poster-swiper-container {
     width: 100%;
     height: 100%;
+    min-height: 100%;
 }
 
 .poster-swiper-card{
@@ -132,7 +133,7 @@ left: 0;
    width: 100%;
    text-align: center;
    font-size: var(--fs-text2);
-   color: var(--grey);
+   color: #908f92;
 }
 
 .showed-overview p {
@@ -175,32 +176,54 @@ left: 0;
     }
 }
 
-
 @media (max-width:800px) {
     .poster-swiper-card-inner {
         flex-direction: column;
         padding: 0px;
         align-items: center;
     }
-     .poster-swiper-image {
+    .poster-swiper-image {
         width: 100%;
         background-position: center;
-      margin: 0;
-      border-radius: 0 0 40% 40%;
-      height: 300px;
+        margin: 0;
+      border-radius: 0 0 200px 200px;
+      height: 50vh;
       margin-bottom: 30px;
     }
-
+    .poster-container {
+        height: 100%;
+        position: relative;
+    }
+    
     .showed-text-cont {
         width: 80%;
         padding: 0px;
-       
     }
-
+    .showed-text-first-info {
+        width: 100%;
+        height: 100%;
+    }
+    .small-swiper-cont {
+        bottom: 0;
+        height: 100%;
+        margin-block: 20px;
+    }
+    .header-small-cont{
+        bottom: 80px;
+    }
     .header-poster-card{
         font-size: 34px;
     }
 }
+
+@media (max-width:600px) {
+    .poster-swiper-image {
+        text-align: center;
+    }
+}
+
+
+
 
 @media (max-width:460px) {
     .poster-swiper-card-inner {
@@ -221,10 +244,6 @@ left: 0;
     .showed-durationNgenres, .showed-genres {
         justify-content: center;
     }
-    .poster-container {
-        padding-bottom: 30px;
-    }
-   
 }
 
 @media (max-width: 390px) {
